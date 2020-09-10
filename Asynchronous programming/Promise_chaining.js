@@ -46,8 +46,8 @@ learnDevelopment()
         console.log("Success.");
     });
 
-
-/* var promise = new Promise(function(resolve, reject)
+/*
+var promise = new Promise(function(resolve, reject)
 {
     const x = "geeksforgeeks";
     const y = "geeksforgeeks";

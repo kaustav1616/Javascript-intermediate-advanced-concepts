@@ -9,16 +9,6 @@ var promise = new Promise(function(resolve, reject)
         reject();
 });
 
-promise
-    .then(function()
-    {
-        return ("here");
-    })
-    .then(function(resolve)
-    {
-        console.log(resolve);
-    });
-
 // console.log(str);
 
 /* nice way to conceptualize: if resolve() has been called in the Promise object, callback function in 'then' will be executed;
