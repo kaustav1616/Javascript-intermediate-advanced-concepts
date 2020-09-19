@@ -4,9 +4,9 @@ var promise = new Promise(function(resolve, reject)
     const y = "geeksforgeeks";
 
     if(x == y)
-        resolve();
+        resolve("You are a geek.");
     else    
-        reject();
+        reject("You are not a geek");
 });
 
 // console.log(str);
@@ -15,11 +15,11 @@ var promise = new Promise(function(resolve, reject)
  * if reject() has been called in the Promise object, callback function in 'catch' will be executed.
  */
 promise
-    .then(function()
+    .then(function(resolve_msg)
     {
-        console.log("You are a geek");
+        console.log(resolve_msg);
     })
-    .catch(function()
+    .catch(function(reject_msg)
     {
-        console.log("You are not a geek");
+        console.log(reject_msg);
     });

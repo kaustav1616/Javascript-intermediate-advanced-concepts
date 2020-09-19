@@ -1,11 +1,11 @@
 /* explanation: 
- * "If the function in the .then handler returns a value, then the Promise resolves with that value. If the handler 
- * returns another Promise, then the original Promise resolves with the resolved value of the chained Promise. The 
- * next .then handler will always contain the resolved value of the chained promise returned in the preceding .then."
- * link to StackOverflow article: https://stackoverflow.com/questions/38884522/why-is-my-asynchronous-function-returning-promise-pending-instead-of-a-val
+ * .then() returns a Promise. If handler function of then() returns a value, then the Promise returned by then()
+ * resolves with that value. If handler function returns an already resolved Promise, then Promise returned by then()
+ * resolves with the resolved value of the Promise returned by the handler.
+ * link to article: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
  */
 
-function learnDevelopment()
+function learnDevelopment() // makes a promise to caller to learn development
 {
     return new Promise(function(resolve, reject)
     {
@@ -35,7 +35,7 @@ function getJob()
 learnDevelopment()
     .then(function()
     {
-        return buildProjects()
+        return buildProjects(); // Promise returned by then() is resolved with the resolved value of the Promise returned from here
     })
     .then(function()
     {
@@ -61,7 +61,7 @@ var promise = new Promise(function(resolve, reject)
 promise
     .then(function()
     {
-        return "Here."
+        return "Here." // Promise returned by then() is resolved with this value
     })
     .then(function(resolve)
     {

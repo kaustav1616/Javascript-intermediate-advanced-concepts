@@ -53,17 +53,20 @@ doFirst("Brush teeth.")
     });
  */
 
-// Step 2: demonstrate with async await
+// Step 2: demonstrate with async await (musch cleaner code and easier to visualize the sequence of events as it looks like synchronous code)
 async function demo()
 {
-    try
+    try // all the code that could potentially fail (eg. unfulfilled promise)
     {
-        const firstActionPositiveResponse = await doFirst("Brush teeth.");
+        /* await: all the code will wait till the function is completed 
+         * return value: argument to resolve() in corresponding promise 
+         */
+        const firstActionPositiveResponse = await doFirst("Brush teeth."); // 'firstActionPositiveResponse' holds value with which Promise resolves
         console.log(firstActionPositiveResponse);
         const secondActionPositiveResponse = await doSecond("Go to bed.");
         console.log(secondActionPositiveResponse);
     }
-    catch(error)
+    catch(error) // if any promise is unfulfilled, the argument to reject() in that promise gets passed to catch()
     {
         console.log(error);
     }
